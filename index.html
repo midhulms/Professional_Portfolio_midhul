@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Midhul M S - Digital Business Analytics Professional</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-black: #000000;
+            --neon-green: #00ff88;
+            --dark-green: #00cc6a;
+            --light-green: #33ff99;
+            --gray-900: #0a0a0a;
+            --gray-800: #1a1a1a;
+            --gray-700: #2a2a2a;
+            --gray-600: #404040;
+            --gray-500: #666666;
+            --gray-400: #999999;
+            --gray-300: #cccccc;
+            --gray-200: #e6e6e6;
+            --gray-100: #f5f5f5;
+            --white: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.6;
+            color: var(--white);
+            background: var(--primary-black);
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 1px solid rgba(0, 255, 136, 0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .nav-logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--neon-green);
+            text-decoration: none;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--gray-300);
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            color: var(--neon-green);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background: var(--neon-green);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--white);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--gray-400);
+            margin-bottom: 4rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-green), var(--light-green));
+            border-radius: 2px;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: radial-gradient(ellipse at center, rgba(0, 255, 136, 0.1) 0%, transparent 70%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grid" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M 10 0 L 0 0 0 10" fill="none" stroke="rgba(0,255,136,0.1)" stroke-width="0.5"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 300px;
+            gap: 4rem;
+            align-items: center;
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-text h1 {
+            font-size: 4rem;
+            font-weight: 800;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--white) 0%, var(--neon-green) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.1;
+        }
+
+        .hero-text .tagline {
+            font-size: 1.5rem;
+            color: var(--gray-400);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+
+        .hero-text .subtitle {
+            font-size: 1.8rem;
+            color: var(--neon-green);
+            margin-bottom: 2rem;
+            font-weight: 600;
+        }
+
+        .hero-image {
+            position: relative;
+        }
+
+        .hero-image img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            border-radius: 20px;
+            border: 3px solid var(--neon-green);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.3);
+        }
+
+        .contact-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+
+        .contact-item {
+            background: rgba(0, 255, 136, 0.1);
+            border: 1px solid rgba(0, 255, 136, 0.3);
+            padding: 0.8rem 1.2rem;
+            border-radius: 25px;
+            font-size: 0.9rem;
+            color: var(--gray-300);
+            backdrop-filter: blur(10px);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .social-link {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.8rem 1.5rem;
+            background: linear-gradient(135deg, var(--neon-green), var(--dark-green));
+            color: var(--primary-black);
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .social-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
+        }
+
+        /* Summary Section */
+        .summary {
+            background: var(--gray-900);
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem 0;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .summary::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-green), var(--light-green));
+        }
+
+        .summary p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--gray-300);
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* Cards Grid */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .card {
+            background: var(--gray-900);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-green), var(--light-green));
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-green);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+        }
+
+        .card h3 {
+            color: var(--white);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+        }
+
+        .card p {
+            color: var(--gray-400);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+
+        .tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .tag {
+            background: rgba(0, 255, 136, 0.2);
+            color: var(--neon-green);
+            padding: 0.4rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            border: 1px solid rgba(0, 255, 136, 0.3);
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            margin: 4rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            height: 100%;
+            width: 3px;
+            background: linear-gradient(180deg, var(--neon-green), var(--dark-green));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            margin-left: 70px;
+            background: var(--gray-900);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -52px;
+            top: 30px;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: var(--neon-green);
+            border: 4px solid var(--primary-black);
+            box-shadow: 0 0 0 4px rgba(0, 255, 136, 0.3);
+        }
+
+        .timeline-item:hover {
+            border-color: var(--neon-green);
+            transform: translateX(10px);
+        }
+
+        .timeline-item h3 {
+            color: var(--white);
+            font-size: 1.3rem;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .timeline-item .company {
+            color: var(--neon-green);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-item .date {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-item ul {
+            margin-left: 1.5rem;
+        }
+
+        .timeline-item li {
+            margin-bottom: 0.5rem;
+            color: var(--gray-400);
+        }
+
+        .award-link {
+            color: var(--neon-green);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .award-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+
+        .project-card {
+            background: var(--gray-900);
+            border-radius: 20px;
+            padding: 2.5rem;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .project-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-green), var(--light-green));
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--neon-green);
+            box-shadow: 0 20px 40px rgba(0, 255, 136, 0.2);
+        }
+
+        .project-card h4 {
+            color: var(--white);
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .project-card p {
+            color: var(--gray-400);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .project-link {
+            color: var(--neon-green);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .project-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Certifications Grid */
+        .cert-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin: 4rem 0;
+        }
+
+        .cert-card {
+            background: var(--gray-900);
+            border-radius: 15px;
+            padding: 2rem;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cert-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--neon-green), var(--light-green));
+        }
+
+        .cert-card:hover {
+            transform: translateY(-3px);
+            border-color: var(--neon-green);
+            box-shadow: 0 15px 30px rgba(0, 255, 136, 0.2);
+        }
+
+        .cert-card h4 {
+            color: var(--white);
+            font-size: 1rem;
+            margin-bottom: 0.5rem;
+            line-height: 1.4;
+            font-weight: 600;
+        }
+
+        .cert-card p {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .cert-link {
+            color: var(--neon-green);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .cert-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Publication */
+        .publication {
+            background: var(--gray-900);
+            border-radius: 20px;
+            padding: 3rem;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            margin: 4rem 0;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .publication::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-green), var(--light-green));
+        }
+
+        .publication h3 {
+            color: var(--white);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .publication p {
+            color: var(--gray-400);
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .publication-link {
+            color: var(--neon-green);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .publication-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, var(--gray-900) 0%, var(--gray-800) 100%);
+            border-radius: 30px;
+            padding: 4rem;
+            margin: 4rem 0;
+            border: 1px solid rgba(0, 255, 136, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--neon-green), var(--light-green));
+        }
+
+        .contact-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .form-group {
+            margin-bottom: 2rem;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+            color: var(--white);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(0, 255, 136, 0.3);
+            border-radius: 10px;
+            background: var(--gray-800);
+            color: var(--white);
+            font-family: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--neon-green);
+            box-shadow: 0 0 0 3px rgba(0, 255, 136, 0.1);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--neon-green), var(--dark-green));
+            color: var(--primary-black);
+            border: none;
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 255, 136, 0.3);
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(0, 255, 136, 0.4);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gray-900);
+            color: var(--gray-400);
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(0, 255, 136, 0.2);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 2rem;
+            }
+
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-text .subtitle {
+                font-size: 1.3rem;
+            }
+
+            .section-title {
+                font-size: 2.2rem;
+            }
+
+            .contact-info {
+                justify-content: center;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .timeline-item {
+                margin-left: 40px;
+            }
+
+            .timeline-item::before {
+                left: -37px;
+            }
+
+            .cards-grid,
+            .projects-grid,
+            .cert-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .summary,
+            .contact-section {
+                padding: 2.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+
+            .hero-text .tagline {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 1.8rem;
+            }
+
+            .card,
+            .timeline-item,
+            .project-card,
+            .cert-card {
+                padding: 2rem;
+            }
+
+            .contact-section,
+            .summary {
+                padding: 2rem;
+            }
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out;
+        }
+
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <a href="#home" class="nav-logo">Midhul M S</a>
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#certifications">Certifications</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#awards">Awards</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn">☰</button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <div class="hero-text">
+                    <h1>Midhul M S</h1>
+                    <p class="tagline">Digital Business Analytics | Semiconductor Debugging & Validation</p>
+                    <p class="subtitle">Transforming data into insights, insights into strategy, and strategy into measurable impact.</p>
+                    
+                    <div class="contact-info">
+                        <span class="contact-item">📍 Trivandrum, Kerala, India</span>
+                        <span class="contact-item">📞 (+91) 8281639761</span>
+                        <span class="contact-item">✉️ midhulms@gmail.com</span>
+                    </div>
+
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/midhul-m-s" target="_blank" class="social-link">LinkedIn</a>
+                        <a href="https://github.com/midhulms" target="_blank" class="social-link">GitHub</a>
+                        <a href="https://midhulms.github.io/" target="_blank" class="social-link">Portfolio</a>
+                    </div>
+                </div>
+                <div class="hero-image">
+                    <img src="https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=400" alt="Midhul M S" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Summary -->
+    <section id="about">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Professional Summary</h2>
+            <div class="summary scroll-reveal">
+                <p>I'm an MSc Digital Business Analytics candidate at EMLV (2025) with over five years of experience at the intersection of semiconductor debugging, machine learning, and business intelligence.</p>
+                <br>
+                <p>I specialize in turning complex technical data into actionable business strategies — from cutting semiconductor defects by 50% to driving client acquisition efficiency in international business roles.</p>
+                <br>
+                <p>My unique strength lies in bridging technical depth with business acumen: delivering measurable impact by combining Python, ML, debugging expertise with Power BI, Apache Superset, and strategic leadership.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Skills -->
+    <section id="skills">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Core Skills</h2>
+            <div class="cards-grid">
+                <div class="card scroll-reveal">
+                    <h3><span class="card-icon">📊</span>Analytics & Data Science</h3>
+                    <p>Advanced analytics and machine learning capabilities.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Machine Learning</span>
+                        <span class="tag">ARIMA</span>
+                        <span class="tag">Scikit-learn</span>
+                        <span class="tag">Pandas</span>
+                        <span class="tag">Apache Superset</span>
+                        <span class="tag">Power BI</span>
+                    </div>
+                </div>
+
+                <div class="card scroll-reveal">
+                    <h3><span class="card-icon">⚙️</span>Technical Skills</h3>
+                    <p>Deep expertise in semiconductor debugging and validation.</p>
+                    <div class="tags">
+                        <span class="tag">WPA</span>
+                        <span class="tag">GPU Trace</span>
+                        <span class="tag">ETW</span>
+                        <span class="tag">Event Viewer</span>
+                        <span class="tag">Driver Debugging</span>
+                        <span class="tag">Log Analysis</span>
+                        <span class="tag">Linux</span>
+                        <span class="tag">Google Workspace</span>
+                        <span class="tag">Microsoft Teams</span>
+                        <span class="tag">Excel</span>
+                    </div>
+                </div>
+
+                <div class="card scroll-reveal">
+                    <h3><span class="card-icon">💼</span>Business Skills</h3>
+                    <p>Strategic leadership and client-focused problem solving.</p>
+                    <div class="tags">
+                        <span class="tag">Business Development</span>
+                        <span class="tag">Market Analysis</span>
+                        <span class="tag">Strategy</span>
+                        <span class="tag">Client Relations</span>
+                        <span class="tag">Project Management</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Professional Experience -->
+    <section id="experience">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item scroll-reveal">
+                    <h3>Business Development Officer Intern</h3>
+                    <p class="company">Knowlegy International</p>
+                    <p class="date">Nov 2024 – Aug 2025 | Trivandrum, India</p>
+                    <ul>
+                        <li>Conducted market analyses that improved client acquisition efficiency.</li>
+                        <li>Reduced acquisition costs by 15% through data-driven campaigns.</li>
+                        <li>Built strong client relationships, increasing pipeline opportunities by 20%.</li>
+                        <li>Integrated analytics into business development strategy to align with client needs.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <h3>Associate I – Semiconductor Product Validation</h3>
+                    <p class="company">UST (Intel Client)</p>
+                    <p class="date">Sep 2023 – Sep 2024 | Trivandrum, India</p>
+                    <ul>
+                        <li>Led a 10-member validation team on Intel debugging and validation projects.</li>
+                        <li>Reduced defects by 50% and improved stability through advanced debugging.</li>
+                        <li>Achieved 95% on-time project delivery by coordinating cross-functional teams.</li>
+                    </ul>
+                    <p><strong>Recognition:</strong> <a href="https://drive.google.com/file/d/1f8g3kelgKlTJa-kw-yBVt8wfsEWZCwUq/view" target="_blank" class="award-link">USTAR Award</a></p>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <h3>Semiconductor Debug Engineer</h3>
+                    <p class="company">UST (Intel Client)</p>
+                    <p class="date">Jul 2022 – Sep 2023 | Bengaluru, India</p>
+                    <ul>
+                        <li>Root cause analysis with WPA, ETW, GPU Trace.</li>
+                        <li>Standardized workflows, reducing issue resolution time by 30%.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <h3>Semiconductor Triage Engineer</h3>
+                    <p class="company">UST (Intel Client)</p>
+                    <p class="date">Mar 2022 – Jul 2022 | Bengaluru, India</p>
+                    <ul>
+                        <li>Performed initial triage and classification of semiconductor product issues.</li>
+                        <li>Utilized log analysis and performance monitoring tools to assess product health.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <h3>Semiconductor Validation Engineer</h3>
+                    <p class="company">UST (Intel Client)</p>
+                    <p class="date">Sep 2021 – Mar 2022 | Bengaluru, India</p>
+                    <ul>
+                        <li>Executed comprehensive validation test plans for Intel semiconductor products.</li>
+                        <li>Analyzed test results and generated detailed validation reports.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <h3>IT Support Engineer</h3>
+                    <p class="company">MS Constructions & Contractors</p>
+                    <p class="date">Aug 2019 – Jul 2021 | Trivandrum, India</p>
+                    <ul>
+                        <li>Maintained IT infrastructure uptime at 99% for 50+ employees.</li>
+                        <li>Reduced helpdesk tickets by 30% via proactive training and documentation.</li>
+                    </ul>
+                </div>
+
+                <div class="timeline-item scroll-reveal">
+                    <h3>Computer Assistant Intern</h3>
+                    <p class="company">MS Constructions & Contractors</p>
+                    <p class="date">Apr 2013 – Apr 2014 | Trivandrum, India</p>
+                    <ul>
+                        <li>Assisted with computer operations and basic system maintenance.</li>
+                        <li>Provided user support and training for office applications.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education -->
+    <section id="education">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Education</h2>
+            <div class="cards-grid">
+                <div class="card scroll-reveal">
+                    <h3>🎓 MSc Digital Business Analytics</h3>
+                    <p><strong>EMLV Business School, Paris</strong></p>
+                    <p>2023 – 2025 (In Progress)</p>
+                    <p>Advanced coursework in data analytics, machine learning, business intelligence, and strategic decision-making.</p>
+                </div>
+
+                <div class="card scroll-reveal">
+                    <h3>🎓 Master of Computer Applications (MCA)</h3>
+                    <p><strong>Amrita Vishwa Vidyapeetham</strong></p>
+                    <p>2017 – 2019</p>
+                    <p>Comprehensive graduate program in computer science with focus on software development and system analysis.</p>
+                </div>
+
+                <div class="card scroll-reveal">
+                    <h3>🎓 Bachelor of Computer Applications (BCA)</h3>
+                    <p><strong>Amrita Vishwa Vidyapeetham</strong></p>
+                    <p>2014 – 2017</p>
+                    <p>Undergraduate program covering programming fundamentals, database management, and software engineering principles.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects -->
+    <section id="projects">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Projects</h2>
+            <div class="projects-grid">
+                <div class="project-card scroll-reveal">
+                    <h4>Mobilfarmer</h4>
+                    <p>Digital marketplace connecting farmers with consumers; boosted engagement by 30%.</p>
+                    <div class="tags">
+                        <span class="tag">Android</span>
+                        <span class="tag">Java</span>
+                        <span class="tag">SQLite</span>
+                    </div>
+                    <a href="https://github.com/midhulms/mobilfarmer" target="_blank" class="project-link">View on GitHub →</a>
+                </div>
+
+                <div class="project-card scroll-reveal">
+                    <h4>Rice Price Prediction</h4>
+                    <p>Delivered 85% accurate forecasts, helping farmers plan pricing strategies.</p>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">ARIMA</span>
+                        <span class="tag">Scikit-learn</span>
+                        <span class="tag">Pandas</span>
+                    </div>
+                    <a href="https://github.com/midhulms/price-prediction-ML" target="_blank" class="project-link">View on GitHub →</a>
+                </div>
+
+                <div class="project-card scroll-reveal">
+                    <h4>Rudhra</h4>
+                    <p>Achieved 90% malware detection rate, protecting Android devices.</p>
+                    <div class="tags">
+                        <span class="tag">Android</span>
+                        <span class="tag">Security</span>
+                        <span class="tag">Java</span>
+                    </div>
+                </div>
+
+                <div class="project-card scroll-reveal">
+                    <h4>Asthra</h4>
+                    <p>Reduced encryption/decryption time by 30%, improving data security.</p>
+                    <div class="tags">
+                        <span class="tag">C#</span>
+                        <span class="tag">Steganography</span>
+                        <span class="tag">Data Security</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Certifications</h2>
+            <div class="cert-grid">
+                <div class="cert-card scroll-reveal">
+                    <h4>Leadership Skills for the Future</h4>
+                    <p>LinkedIn Learning</p>
+                    <a href="https://drive.google.com/file/d/1VxiLseGTYOKPvu03_SiKmQq-NA1saTq7/view?pli=1" target="_blank" class="cert-link">View Certificate →</a>
+                </div>
+
+                <div class="cert-card scroll-reveal">
+                    <h4>Value the Compute in Chip Design Development</h4>
+                    <p>Intel</p>
+                    <a href="https://drive.google.com/file/d/183BkGzgvia9NgGx5pRkJwgOqtAYA_yDa/view" target="_blank" class="cert-link">View Certificate →</a>
+                </div>
+
+                <div class="cert-card scroll-reveal">
+                    <h4>Working with Memory Dumps & Debugging</h4>
+                    <p>Pluralsight</p>
+                    <a href="https://app.pluralsight.com/achievements/share/8acfb97f-72ad-4541-b3f4-6aa85003516b" target="_blank" class="cert-link">View Certificate →</a>
+                </div>
+
+                <div class="cert-card scroll-reveal">
+                    <h4>Build a Machine Learning Web App</h4>
+                    <p>Coursera</p>
+                    <a href="https://www.coursera.org/account/accomplishments/certificate/SP52ZEDA732P" target="_blank" class="cert-link">View Certificate →</a>
+                </div>
+
+                <div class="cert-card scroll-reveal">
+                    <h4>Machine Learning</h4>
+                    <p>Coursera</p>
+                    <a href="https://www.coursera.org/account/accomplishments/certificate/K3JT2RHZYBWC" target="_blank" class="cert-link">View Certificate →</a>
+                </div>
+
+                <div class="cert-card scroll-reveal">
+                    <h4>Support Vector Machines in Python</h4>
+                    <p>Coursera</p>
+                    <a href="https://www.coursera.org/account/accomplishments/certificate/CUCNFPHNNGXU" target="_blank" class="cert-link">View Certificate →</a>
+                </div>
+
+                <div class="cert-card scroll-reveal">
+                    <h4>Machine Learning</h4>
+                    <p>Livewire Trivandrum</p>
+                    <a href="https://drive.google.com/file/d/12fhdL9J-WdKs8dsMGsSrn8aXAgzbsRVu/view" target="_blank" class="cert-link">View Certificate →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Publications -->
+    <section id="publications">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Publications</h2>
+            <div class="publication scroll-reveal">
+                <h3>An efficient agricultural marketing system for optimizing the benefits of farmers</h3>
+                <p><strong>IEEE ICICICT Conference</strong> | Published: July 5, 2019</p>
+                <p>Focus: Leveraging intelligent computing for agricultural market optimization.</p>
+                <a href="https://ieeexplore.ieee.org/document/8993386" target="_blank" class="publication-link">View Publication →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Honors & Awards -->
+    <section id="awards">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Honors & Awards</h2>
+            <div class="cards-grid">
+                <div class="card scroll-reveal">
+                    <h3>🏆 USTAR Recognition</h3>
+                    <p><strong>UST (2023)</strong></p>
+                    <p>Recognized for exceptional performance in semiconductor product validation and technical excellence.</p>
+                    <a href="https://drive.google.com/file/d/1f8g3kelgKlTJa-kw-yBVt8wfsEWZCwUq/view" target="_blank" class="award-link">View Award →</a>
+                </div>
+
+                <div class="card scroll-reveal">
+                    <h3>🏃‍♂️ Trivandrum UST Marathon</h3>
+                    <p><strong>2024</strong></p>
+                    <p>Completed the Trivandrum UST Marathon, demonstrating commitment to health and fitness alongside professional achievements.</p>
+                    <a href="https://drive.google.com/file/d/1c_xM9aEafmBOwshF7WMXho_q2K3wbz4S/view" target="_blank" class="award-link">View Certificate →</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <h2 class="section-title scroll-reveal">Let's Connect</h2>
+            <div class="contact-section scroll-reveal">
+                <div style="text-align: center; margin-bottom: 3rem;">
+                    <h3 style="color: var(--white); margin-bottom: 1rem;">Get In Touch</h3>
+                    <p style="color: var(--gray-400);">📍 Trivandrum, Kerala, India</p>
+                    <p style="color: var(--gray-400);">📞 (+91) 8281639761</p>
+                    <p style="color: var(--gray-400);">✉️ midhulms@gmail.com</p>
+                </div>
+
+                <form class="contact-form">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <div style="text-align: center;">
+                        <button type="submit" class="submit-btn">Send Message</button>
+                    </div>
+                </form>
+
+                <div class="social-links" style="justify-content: center; margin-top: 3rem;">
+                    <a href="https://linkedin.com/in/midhul-m-s" target="_blank" class="social-link">LinkedIn</a>
+                    <a href="https://github.com/midhulms" target="_blank" class="social-link">GitHub</a>
+                    <a href="https://midhulms.github.io/" target="_blank" class="social-link">Portfolio</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Midhul M S. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Contact form handling
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            this.reset();
+        });
+
+        // Add active state to navigation
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
